@@ -159,7 +159,7 @@ class Lumberjacks(gym.Env):
                 self._agents.append(Agent(agent_id, pos=pos))
                 agent_id += 1
             elif cell == PRE_IDS['tree']:
-                self._tree_map[pos] = self.np_random.randint(1, self.n_agents + 1)
+                self._tree_map[pos] = 2 # self.np_random.randint(1, self.n_agents + 1)
                 tree_id += 1
 
     def _to_extended_coordinates(self, relative_coordinates):
@@ -193,7 +193,7 @@ class Lumberjacks(gym.Env):
                 self.np_random.shuffle(init_pos)
                 _shuffle_counter += 1
                 if _shuffle_counter > 10:
-                    logger.warning("Grid configuration same as last episode")
+                    # logger.warning("Grid configuration same as last episode")
                     break
         self.__init_pos = init_pos
         return np.reshape(init_pos, self._grid_shape)
